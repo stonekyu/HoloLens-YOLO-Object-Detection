@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YoloObjectLabeler
       objectReference: {fileID: 0}
+    - target: {fileID: 5617664926393184657, guid: e3178973a317f5f47be4e8ec0259500a, type: 3}
+      propertyPath: ModelAsset
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 04aee640ee9c6654eba95775424440a5, type: 3}
     - target: {fileID: 5617664926393184658, guid: e3178973a317f5f47be4e8ec0259500a, type: 3}
       propertyPath: m_RootOrder
       value: 5
