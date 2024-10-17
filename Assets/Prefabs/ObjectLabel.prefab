@@ -437,6 +437,8 @@ MonoBehaviour:
   ContentParent: {fileID: 5265608569948593053}
   LineRenderer: {fileID: 5265608571350550318}
   TextMesh: {fileID: 5265608570069452989}
+  KeyboardPrefab: {fileID: 6323059107087571720, guid: d1f6af02bfc9e7140a4427e281b049c3, type: 3}
+  TVPrefab: {fileID: 8408954572358003625, guid: c222988537c51974c8f0c6f088e36792, type: 3}
 --- !u!1 &7587686800783579827
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ namespace Assets.Scripts
         {
             set => this.TextMesh.text = value;
         }
-        
+
         /// <summary>
         ///     Updates the position of the object label.
         /// </summary>
