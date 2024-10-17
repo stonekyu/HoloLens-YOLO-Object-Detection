@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5265608570069452986}
-  - {fileID: 4373402249338763121}
   m_Father: {fileID: 6223812647036973167}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -320,6 +319,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5265608569948593052}
+  - {fileID: 4373402249338763121}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -437,8 +437,8 @@ MonoBehaviour:
   ContentParent: {fileID: 5265608569948593053}
   LineRenderer: {fileID: 5265608571350550318}
   TextMesh: {fileID: 5265608570069452989}
-  KeyboardPrefab: {fileID: 6323059107087571720, guid: d1f6af02bfc9e7140a4427e281b049c3, type: 3}
-  TVPrefab: {fileID: 8408954572358003625, guid: c222988537c51974c8f0c6f088e36792, type: 3}
+  keyboardPrefab: {fileID: 6323059107087571720, guid: d1f6af02bfc9e7140a4427e281b049c3, type: 3}
+  tvPrefab: {fileID: 8408954572358003625, guid: c222988537c51974c8f0c6f088e36792, type: 3}
 --- !u!1 &7587686800783579827
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5590342625322883168}
+    m_TransformParent: {fileID: 5265608571350550319}
     m_Modifications:
     - target: {fileID: 5609282196836022485, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_IsActive
@@ -588,6 +588,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.00080000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -597,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8
+      value: -0.0538
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -617,11 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.4
+      value: -0.0013999939
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.2
+      value: 0.05220008
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718146, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -636,9 +648,57 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5265608571350550316}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5265608571350550305}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Assets.Scripts.ObjectLabelController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5777604085711718149, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5777604085711718173, guid: 26f12e049b3e3954c97cbb469d464ff1, type: 3}
       propertyPath: m_Name
       value: ToggleButton
