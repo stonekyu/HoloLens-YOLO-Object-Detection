@@ -1,148 +1,143 @@
 # 1. General
 ![Demo image](Demo.jpg)
 
-This Unity project is used for executing 2D image object recognition models on the HoloLens2 hardware using the Unity Framework Sentis. As an example the YOLOv8n and Yolov10n models were used (the default models are included here).
-The model is executed as soon as the application is started. The recognized objects are identified with a label, which displays the recognized class and the associated detection probability (as you can see in the image). This label is placed in the center of the detected object by shooting a sphere cast onto the spatial mesh of the environment.
+이 Unity 프로젝트는 Unity 프레임워크 Sentis를 사용하여 HoloLens 2 하드웨어에서 2D 이미지 객체 인식 모델을 실행하는 데 사용됩니다. 예시로 YOLOv8n과 YOLOv10n 모델이 사용되었습니다(기본 모델이 포함되어 있습니다).
+모델은 애플리케이션이 시작되자마자 실행됩니다. 인식된 객체는 클래스와 관련된 인식 확률을 표시하는 레이블로 식별됩니다(이미지에서 볼 수 있듯이). 이 레이블은 공간 메시(spatial mesh)에 구를 발사하여 인식된 객체의 중앙에 배치됩니다.
 
-By combining the 2D position of the objects in the image with the information about the position of the camera and the spatial mesh, it is possible to estimate the position of the object in the 3D space. Therefore, the image is virtually positioned in front of the camera on a scale that is aligned with the field of view of the camera. Referring the following image you can estimate the position by casting a sphere starting in the position of camera A and going through the position of the object in image B. The point of the collision with the spatial mesh C is the estimated position of the object in the 3D space.
+이미지의 객체 2D 위치와 카메라 및 공간 메시 정보를 결합하여 객체의 3D 공간에서 위치를 추정할 수 있습니다. 이미지는 카메라의 시야에 맞게 정렬된 비율로 카메라 앞에 가상으로 배치됩니다. 아래 이미지와 같이 카메라 A의 위치에서 시작해 이미지 B의 객체 위치를 통과하는 구를 발사하여 공간 메시 C에 충돌하는 지점에서 3D 공간에서 객체의 위치를 추정할 수 있습니다.
 
 ![Projection](Projection.png)
 
-### Detection of new objects / Removal of vanished objects
-To reduce the error rate of recognisitions and increase robustness, an additional filter mechanism is integrated. A new object is only displayed in the user's field of view once it has been recognised in four consecutive model executions. 
-Furthermore, objects are not removed immediately if they are not recognised in a model execution. The object is only removed if it has not been recognised in the user's field of vision for three seconds. If the object is not in the user's field of vision, it remains at his position.  
+### 새 객체 감지 및 사라진 객체 제
+인식 오류를 줄이고 안정성을 높이기 위해 추가 필터 메커니즘이 통합되었습니다. 새로운 객체는 모델이 연속 4회 실행에서 인식된 경우에만 사용자의 시야에 표시됩니다. 또한 객체가 모델 실행에서 인식되지 않더라도 즉시 제거되지 않습니다. 사용자의 시야에서 3초 동안 인식되지 않은 경우에만 객체가 제거됩니다. 객체가 사용자의 시야에 있지 않으면 해당 위치에 남아 있습니다.
 
 ### Features based on detections
-In this example code, a label and optional debug information is displayed for each recognized object.
-If you would like to execute your own functionality based on the recognized objects, the method `TriggerDetectionActions` in the `YoloRecognitionHandler` class can be extended.
+이 예제 코드에서는 인식된 각 객체에 대해 레이블과 선택적인 디버그 정보가 표시됩니다. 인식된 객체를 기반으로 자체 기능을 실행하려면 YoloRecognitionHandler 클래스의 TriggerDetectionActions 메서드를 확장하면 됩니다.
 
 # 2. Settings & Parameters
-Various settings can be changed using the hand menu. The parameters of the programm can be changed in the `Parameters` file. The following parameters are used in the context of the implementation:
+여러 설정은 hand menu에서 변경할 수 있습니다. 프로그램의 매개변수는 Parameters 파일에서 변경할 수 있습니다. 구현과 관련된 매개변수는 다음과 같습니다.
 
 ### Model parameters
-- `ModelImageResolution`: In this parameter the resolution of the model input image is defined. The YOLO default input size is 640 x 640.
-- `ModelVersion`: This parameter destinguishes between the used version of YOLO. Currently v8 and v10 are supported.
-- `OverlapThreshold`: Defines when two boundingboxes describe the same object (measured as IoU).
+- `ModelImageResolution`: 모델 입력 이미지의 해상도를 정의합니다. YOLO 기본 입력 크기는 640 x 640입니다.
+- `ModelVersion`: 사용된 YOLO 버전을 구분합니다. 현재 v8 및 v10이 지원됩니다.
+- `OverlapThreshold`: 두 경계 상자가 동일한 객체를 설명하는지 여부를 정의합니다(IoU로 측정).
 
 ### Performance presets
-These values describe the presets stored in the hand menu for the performance of the model execution. The value describes the number of layers that are executed in every frame. 
-- `LayersHigh`: Preset for high model execution rate, but low framerate.
-- `LayersLow`: Preset for low model execution rate, but higher framerate.
+이 값들은 모델 실행 성능에 대해 hand menu에 저장된 프리셋을 나타냅니다. 값은 매 프레임에서 실행되는 레이어 수를 설명합니다.
+- `LayersHigh`: 높은 모델 실행률이지만 낮은 프레임률을 위한 프리셋.
+- `LayersLow`: 낮은 모델 실행률이지만 높은 프레임률을 위한 프리셋.
 
 ### Model recognition accuracy
-These values describe the presets stored in the hand menu for the accuracy of the model recognitions. The value describes the minimum accuracy that an individual recognition must have in order to be perceived as such.
+이 값들은 손 메뉴에 저장된 모델 인식의 정확도 프리셋을 설명합니다. 값은 개별 인식이 실제로 인식된 것으로 간주되기 위한 최소 정확도를 설명합니다.
 - `ThresholdHigh`
 - `ThresholdMedium`
 - `ThresholdLow`
 
 ### Debug options
-These options can be activated in the hand menu for debugging purposes.
-- `Bounding boxes`: Visualizes the bounding boxes of the detected objects on the virtual projection plane.
-- `Model debug image`: Displays the image that is feed into the model and draws bounding boxes for the detections inside the image.
-- `Projection cubes`: Visualizes fixed positions in the image (marked by colored pixels in the debug image) as cubes at the projected positions on the virtual projection plane. Can be used to determine parameters for the projection. The aim is to ensure that the positions in the room match those in the image.
-- `Debug sphere cast`: Visualizes the shooted sphere casts.
+디버깅 목적으로 손 메뉴에서 활성화할 수 있는 옵션입니다.
+- `Bounding boxes`: 가상 투영 평면에 감지된 객체의 경계 상자를 시각화합니다.
+- `Model debug image`: 모델에 입력되는 이미지를 표시하고 이미지 내 감지를 위한 경계 상자를 그립니다.
+- `Projection cubes`: 이미지의 고정된 위치를 가상 투영 평면의 투영된 위치에 큐브로 시각화합니다. 이를 통해 이미지와 방 안의 위치가 일치하는지 확인할 수 있습니다.
+- `Debug sphere cast`: 발사된 구를 시각화합니다.
 
 ### Position calculator parameters (2D => 3D)
-This group of parameters deals with the 3D position estimation based on the 2D recognition in the image.
-The values for these parameters were determined using the debug options. 
-- `VirtualProjectionPlaneWidth`: This describes the width of the projection plane (previously denoted as B in the image).
-- `MaxSphereLength`: Maximum distance at which objects are displayed.
-- `SphereCastSize`: Size of the cast from the HoloLens to the Mesh (When this parameter is bigger, it is easier to hit smaller objects).
-- `HeightOffset`: Offset of the projection plane.
-- `SphereCastOffset`: Offset of the start position of the sphere casts. This represents the position of the camera of the HoloLens relative to the eyes.
+이 매개변수 그룹은 이미지의 2D 인식을 기반으로 한 3D 위치 추정과 관련이 있습니다. 이 매개변수의 값은 디버그 옵션을 사용하여 결정되었습니다. 
+- `VirtualProjectionPlaneWidth`: 투영 평면의 너비를 설명합니다(이미지에서 B로 표시됨).
+- `MaxSphereLength`: 객체가 표시되는 최대 거리입니다.
+- `SphereCastSize`: 메시로부터 HoloLens로 발사된 구의 크기입니다(이 값이 클수록 작은 객체를 맞추기가 쉬워집니다).
+- `HeightOffset`: 투영 평면의 오프셋입니다.
+- `SphereCastOffset`: 구 발사의 시작 위치 오프셋입니다. 이는 HoloLens 카메라의 위치를 눈에 상대적으로 나타냅니다.
 
 ### Parameters for features based on Object Recognition
-- `MinTimesSeen`: Number of model execution where the model need to detect an object before it is visible to the user.
-- `ObjectTimeOut`: Time in seconds which the object needs to be abscent such that an object is deleted.
-- `MaxIdenticalObject`: Maximum distance between two objects of the same class, so that they are recognised as the same object in different detections.
+- `MinTimesSeen`: 모델이 객체를 감지하여 사용자가 볼 수 있을 때까지 실행된 횟수입니다.
+- `ObjectTimeOut`: 객체가 삭제되기까지 해당 객체가 나타나지 않은 시간(초)입니다.
+- `MaxIdenticalObject`: 서로 다른 감지에서 동일한 클래스로 인식되는 두 객체 사이의 최대 거리입니다.
 
 # 3. Custom model
 
-To use your own model, the following steps must be carried out:
-1. Train your own [YOLOv8n](https://docs.ultralytics.com/modes/train/#usage-examples) or [YOLOv10n](https://docs.ultralytics.com/models/yolov10/#usage-examples) model
-2. Export the trained model to onnx, see [Yolov8](https://docs.ultralytics.com/modes/export/#usage-examples) / [Yolov10](https://github.com/THU-MIG/yolov10#Export)
-3. Copy the trained model to the `Assets/Models` folder
-4. Update the linked model in the `YoloObjectLabeler` prefab or directly in the scene
-5. Update the detected classes in the `ObjectClass` script
-- **Note:** Must be the same order as in config.yaml for training
-6. Update the `ModelImageResolution` in the `Parameters` script if you changed the input resolution of the model (default: 640 x 640)
+사용자 지정 모델을 사용하려면 다음 단계를 수행하십시오.
+1. [YOLOv8n](https://docs.ultralytics.com/modes/train/#usage-examples) 또는 [YOLOv10n](https://docs.ultralytics.com/models/yolov10/#usage-examples) 모델을 훈련합니다/
+2. 훈련된 모델을 ONNX로 내보냅니다. [Yolov8](https://docs.ultralytics.com/modes/export/#usage-examples) / [Yolov10](https://github.com/THU-MIG/yolov10#Export)을 참조하세
+3. 훈련된 모델을 Assets/Models 폴더에 복사합니다.
+4. YoloObjectLabeler 프리팹 또는 장면에서 연결된 모델을 업데이트합니다.
+5. ObjectClass 스크립트에서 감지된 클래스를 업데이트합니다.
+- **참고:** 훈련용 config.yaml에 나열된 순서와 동일해야 합니다.
+6. 모델의 입력 해상도를 변경한 경우 Parameters 스크립트에서 ModelImageResolution을 업데이트합니다(기본값: 640 x 640).
 
-Performance recommendations:
-1. The fewer classes the model has to differentiate between, the better the performance. The default model has quite a few classes and is therefore relatively slow
-2. Quantization to 16 bit has little to no effect (8 bit has not been tried yet)
+성능 권장 사항:
+1. 모델이 구별해야 하는 클래스가 적을수록 성능이 향상됩니다. 기본 모델에는 많은 클래스가 포함되어 있어 상대적으로 느립니다.
+2. 16비트 양자화는 거의 영향을 미치지 않습니다(8비트는 시도하지 않았음).
 
-In addition to YOLO, other onnx models should also be usable.
-For this, the logic for reading the model output tensor in the `YoloModelOutputProcessor` class has to be adapted as well.
+YOLO 외에도 다른 ONNX 모델도 사용 가능합니다. 이를 위해 YoloModelOutputProcessor 클래스에서 모델 출력 텐서를 읽는 로직을 수정해야 합니다.
 
-# 4. Deployment to HoloLens
+# 4. HoloLens 배포
 
-To install the latest version of the app on the HoloLens, perform the following steps:
-1. Install required software: 
+HoloLens에 최신 버전의 앱을 설치하려면 다음 단계를 수행하십시오.
+1. 필수 소프트웨어 설치: 
    - git
-   - Unity version 2021.3.22f1 with the `Universal Windows Platform Build Support` module
-     - Recommendation: Do not install Visual Studio as a DevTool with Unity, since only Visual Studio 2019 is available
-   - Visual Studio 2017 or greater (Recommendation: 2022) with the following workloads and components (can be modified via the Visual Studio Installer):
+   - Universal Windows Platform Build Support 모듈이 포함된 Unity 버전 2021.3.22f1
+     - 권장 사항: Unity와 함께 Visual Studio를 개발 도구로 설치하지 마십시오. Visual Studio 2019만 제공됩니다.
+   - 다음 워크로드 및 구성 요소가 포함된 Visual Studio 2017 이상(권장: 2022)
      - `.NET desktop development` workload
      - `Desktop development with C++` workload
      - `Universal Windows Platform development` workload
-       - Make sure that under `installation details` the following components are included for the workload:
+       - 설치 세부 정보에서 다음 구성 요소가 포함되었는지 확인하십시오:
          - `USB-Connectivity` 
-         - `C++ (vNNN) Universal Windows Platform tools` (newest version)
-         - any `Windows SDK` (Recommendation: Windows 11)
+         - `C++ (vNNN) Universal Windows Platform tools` (최신 버전)
+         - 모 `Windows SDK` (권장: Windows 11)
      - `Game development with Unity` workload
      - `C++ Universal Windows Platform support for vNNN build tools (ARM64)`component
      - `MSVC vNNN - VS NNNN C++ ARM build tools (Latest)` component
      - `MSVC vNNN - VS NNNN C++ ARM64 build tools (Latest)` component
-2. Activate `Developer Mode` on your local machine
-3. In the HoloLens go to: `Settings`->`Update & Security`->`For developers` and enable `Use Developer Features` and `Device Discovery`
-4. Clone the git repo
-5. Open the project in Unity
-6. In Unity, select `File`->`Build Settings`
-   - Check that `HoloLensYOLOObjectDetectionScene` is selected as Scenes in Build
-   - Check that `Universal Windows Platform` is selected as Platform
-   - Check that `ARM-64` is selected as `Build Target Platform`
-   - *Optional:* Change the name of the app by clicking on `Player Settings...` and enter a custom name as `Product name` and as `Package name` (`Universal Windows Platform`->`Publishing settings`)
-   - Click on Build and select an target folder (Recommendation: empty folder)
-   - **Note:** If someone else has already installed an app with the same name on the HoloLens, it can sometimes happen that this version is not overwritten. Renaming is then necessary. This is also the case when you getting the error code `0x80070057` during deployment
-7. Open the built solution in Visual Studio
-8. In Visual Studio select `Release`, `ARM64` and `Device` as a build target (in the top tool bar)
-9. Connect the HoloLens via a USB cable with the PC
-   - **Note:** The HoloLens should appear in the Windows Explorer
-10. In Visual Studio click on `Build`
-   - **Note:** When deploying to the HoloLens from a PC for the first time, a PIN prompt appears during the deployment process. This PIN can be found in the HoloLens as follows: `Settings`->`Update & Security`->`For developers`->Click on `Pair` under `Device discovery`
+2. 로컬 컴퓨터에서 개발자 모드 활성화
+3. HoloLens에서: `설정`->`업데이트 및 보안ㅇ`->`개발자용`으로 이동하여 `개발자 기능 사용` 및 `장치 검색`을 활성화합니다.
+4. git 저장소를 클론합니다.
+5. Unity에서 프로젝트를 엽니다.
+6. 유니티에서 `File`->`Build Settings`을 선택합니다.
+   - `HoloLensYOLOObjectDetectionScene`이 Build Settings에서 선택되었는지 확인하세요.
+   - `Universal Windows Platform`이 플랫폼으로 선택되었는지 확인하세요.
+   - `ARM-64`가 `Build Target Platform`으로 선택되었는지 확인하세요.
+   - *선택사항:* `Player Settings...`에서 앱의 이름을 변경하려면`Product name` 밒 `Package name`에 원하는 이름을 입력하세요 (`Universal Windows Platform`->`Publishing settings`에서 설정가)
+   - build를 클릭하고 대상 폴더를 선택하세요 (권장: 빈 폴더).
+   - **참고:** HoloLens에 동일한 이름의 앱이 이미 설치되어 있는 경우, 종종 새 버전이 덮어쓰이지 않을 수 있습니다. 이 경우 이름을 변경해야 합니다. 배포 중 오류 코드 0x80070057이 발생할 때도 이와 같은 문제가 발생할 수 있습니다.
+7. Visual Studio에서 빌드된 솔루션을 엽니다
+8. Visual Studio에서 빌드 대상으로 `Release`, `ARM64`, `Device`를 선택합니다 (상단 툴바에서 설정).
+9. HoloLens를 PC와 USB 케이블로 연결합니다.
+   - **참고:** Windows 탐색기에 HoloLens가 나타나야 합니다.
+10. Visual Studio에서 `Build`를 클릭합니다.
+   - **참고:** PC에서 HoloLens로 처음 배포할 때, 배포 과정 중에 PIN 입력 요청이 나타날 수 있습니다. 이 PIN은 HoloLens에서 다음과 같이 확인할 수 있습니다: `설정`->`업데이트 및 보안`->`개발자용`->`장치 검색` 아래에서 `Pair`를 클릭힙니다.
 
 # 5. Windows device portal
 
-The Windows Device Portal can be used, for example, to stream the HoloLens image to the PC or to analyse the performance of an app in the HoloLens.
-To call this up, carry out the following steps:
-1. Connect the HoloLens via a USB cable with the PC or connect the PC and the HoloLens to the same WLAN network
-2. In the HoloLens go to: `Settings`->`Update & Security`->`For developers` and enable the `Device Portal`
-3. In the HoloLens go to: `Settings`->`Update & Security`->`For developers` and enter the first URL displayed under `Device Portal` in the browser on the PC
-4. The video stream is available at `Views`->`Mixed Reality Capture`->`Live preview`
+Windows Device Portal은 HoloLens의 영상을 PC로 스트리밍하거나 HoloLens에서 실행 중인 앱의 성능을 분석하는 데 사용할 수 있습니다. 이 포털을 열려면 다음 단계를 따르세요:
+1. HoloLens를 PC와 USB 케이블로 연결하거나 PC와 HoloLens를 동일한 WLAN 네트워크에 연결합니다.
+2. HoloLens에서: `설정`->`업데이트 및 보안`->`개발자용`으로 이동하여 `Device Portal`을 활성화합니다.
+3. HoloLens에서: `설정`->`업데이트 및 보안`->`개발자용`으로 이동하여 `Device Portal`아래에 표시된 첫 번째 URL을 PC의 브라우저에 입력합니다.
+4. 비디오 스트림은 `Views`->`Mixed Reality Capture`->`Live preview`에서 사용할 수 있습니다.
 
 # 6. Debugging
 
-## On PC
-To test the model execution in Unity, the *virtual camera* of [OBS](https://obsproject.com/) can be used as camera input of the model. 
-In this case, the objects are projected in a fixed distance to the user relative to the position in the image.
-## On HoloLens
-In order to debug your C# code directly on the HoloLens, follow these steps (strongly based on https://stackoverflow.com/a/59990792):
-1. In the `Project Settings`->`Player` enable the capabilities `PrivateNetworkClientServer` and `InternetClientServer`
-2. In the `Build Settings` enable `Development Build`, `ScriptDebugging` and `Wait For Managed Debugger`.
-   - **Note:** Changing the `Build configuration` to `Debug` increases the chance that debugging will work successfully. However, this further reduces performance. If this option is selected, `Debug` must also be selected instead of Release when deploying from Visual Studio.
-3. Build and deploy your project as usual.
-4. Connect the PC and the HoloLens to the same WLAN (WLAN must support multicast -> Recommendation: Create a hotspot with the PC)
-5. Disconnect the USB cable from the HoloLens and start the App -> A pop-up occurs
-6. Open the `HoloLens-YOLO-Object-Detection.sln` in Visual Studio and click on `Debug`->`Attach Unity Debugger`. In the list the HoloLens should occur -> select the HoloLens
-    - If the `HoloLens-YOLO-Object-Detection.sln` is not part of your repository folder:
-        - In Unity select `Edit`->`Preferences`->`External tools`
-        - Select Visual Studio as `External Script Editor`.
-        - Select `Embedded packages` and `Local packages` under `Generate .csproj files for:`
-        - Click on `Regenerate project files`
-7. In the HoloLens close the popup
-8. Set break points in Visual Studio and debug your app.
+## PC에서
+Unity에서 모델 실행을 테스트하려면 [OBS](https://obsproject.com/)의 가상 카메라를 사용하여 모델의 카메라 입력으로 사용할 수 있습니다.
+이 경우 객체는 이미지 내 위치에 따라 사용자에게 고정된 거리에서 투영됩니다.
+## HoloLens에서
+HoloLens에서 C# 코드를 직접 디버깅하려면 다음 단계를 따르세요(strongly based on https://stackoverflow.com/a/59990792):
+1. `Project Settings`->`Player`에서 `PrivateNetworkClientServer` 및 `InternetClientServer` 기능을 활성화합니다.
+2. `Build Settings`에서 `Development Build`, `ScriptDebugging`, `Wait For Managed Debugger`를 활성화합니다.
+   - **참고:** `Build configuration`을 `Debug` 로 변경하면 디버깅 성공 확률이 높아집니다. 그러나 성능이 더 저하됩니다. 이 옵션이 선택된 경우 Visual Studio에서 배포할 때 `Realease` 대신 `Debug`를 선택해야 합니다
+3. 프로젝트를 빌드하고 배포합니다.
+4. PC와 HoloLens를 동일한 WLAN에 연결합니다 (WLAN은 멀티캐스트를 지원해야 함 -> 권장: PC에서 핫스팟 생성).
+5. USB 케이블을 HoloLens에서 분리하고 앱을 시작합니다 -> 팝업이 나타납니다.
+6. Visual Studio에서 `HoloLens-YOLO-Object-Detection.sln`을 열고 `Debug`->`Attach Unity Debugger`를 클릭합니다. 목록에 HoloLens가 나타납니다 -> HoloLens를 선택하세요.
+    - `HoloLens-YOLO-Object-Detection.sln` 파일이 저장소 폴더에 없는 경우:
+        - Unity에서 `Edit`->`Preferences`->`External tools`를 선택하세요.
+        - `External Script Editor`로 Visual Studio를 선택하세요.
+        - `Embedded packages` 및 `Local packages`를 선택하세요
+        - `Regenerate project files`를 클릭하세요.
+7. HoloLens에서 팝업을 닫습니다.
+8. Visual Studio에서 break point를 설정하고 앱을 디버깅합니다.
 
-**Note:** The app is significantly slower when debugging and it also takes longer to deploy the app.
+**참고:** 디버깅 중에는 앱 속도가 상당히 느려지며 배포에도 시간이 더 소요됩니다.
 
 # 7. Acknowledgment
-The project was inspired by [YoloHolo](https://github.com/LocalJoost/YoloHolo/tree/main) and parts of the code are based on it.
+이 프로젝트는 [HoloLens-YOLO-Object-Detection]([https://github.com/LocalJoost/YoloHolo/tree/main](https://github.com/dangberg/HoloLens-YOLO-Object-Detection))에서 가져왔으며, HoloLens에서 내가 학습한 YOLO 모델을 사용하여 객체 감지를 구현하기 위해 일부 수정되었습니다. 원본 프로젝트는 유사한 기능을 제공하였고, 이를 바탕으로 나만의 YOLO 모델을 통합하여 프로젝트를 완성할 수 있었습니다. README 파일은 원래 영어로 작성된 내용을 한국어로 번역하고 나의 프로젝트 요구 사항에 맞게 보완하였습니다.
