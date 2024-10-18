@@ -29,7 +29,9 @@ namespace Assets.Scripts
         /// </summary>
         public GameObject keyboardPrefab;
         public GameObject tvPrefab;
-        
+        public GameObject chairPrefab;
+        public GameObject mousePrefab;
+
         /// <summary>
         ///     라벨에 표시할 텍스트를 설정합니다.
         /// </summary>
@@ -71,6 +73,14 @@ namespace Assets.Scripts
             else if (objectName == "Tv")
             {
                 Instantiate(tvPrefab, spawnPosition, Quaternion.Euler(0, 180, 0));
+            }
+            else if (objectName == "Chair")
+            {
+                Instantiate(chairPrefab, spawnPosition, Quaternion.identity);
+            }
+            else if (objectName == "Mouse")
+            {
+                Instantiate(mousePrefab, spawnPosition, Quaternion.identity);
             }
 
             // 프리팹을 생성한 후, ObjectLabel을 비활성화
