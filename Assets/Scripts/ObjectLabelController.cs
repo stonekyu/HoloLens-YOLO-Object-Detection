@@ -57,16 +57,20 @@ namespace Assets.Scripts
         /// </summary>
         public void OnClicked()
         {
-            // 라벨 텍스트를 확인하고, 해당 프리팹을 생성합니다.
-            Vector3 spawnPosition = this.transform.position + new Vector3(0, 0.1f, 0); // Y축으로 0.1단위 위에 생성
+            // 라벨 텍스트에서 객체 이름만 추출 (예: "Keyboard 95%" -> "Keyboard")
+            string[] labelParts = this.TextMesh.text.Split(' '); // 공백을 기준으로 나눔
+            string objectName = labelParts[0]; // 첫 번째 단어 (객체 이름)
 
-            if (this.TextMesh.text == "Keyboard")
+            // 객체 이름에 따라 프리팹을 생성
+            Vector3 spawnPosition = this.transform.position + new Vector3(0, 0.1f, 0); // Y축으로 1 단위 위에 생성
+
+            if (objectName == "Keyboard")
             {
                 Instantiate(keyboardPrefab, spawnPosition, Quaternion.identity);
             }
-            else if (this.TextMesh.text == "Tv")
+            else if (objectName == "Tv")
             {
-                Instantiate(tvPrefab, spawnPosition, Quaternion.identity);
+                Instantiate(tvPrefab, spawnPosition, Quaternion.Euler(0, 180, 0));
             }
 
             // 프리팹을 생성한 후, ObjectLabel을 비활성화
