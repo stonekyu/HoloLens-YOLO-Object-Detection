@@ -24,13 +24,13 @@ namespace Assets.Scripts
         public TextMeshPro TextMesh;
 
         /// <summary>
-        ///     키보드 객체를 위한 프리팹입니다.
-        ///     TV 객체를 위한 프리팹입니다.
+        ///     객체를 위한 프리팹입니다.
         /// </summary>
         public GameObject keyboardPrefab;
         public GameObject tvPrefab;
         public GameObject chairPrefab;
         public GameObject mousePrefab;
+        public GameObject cupPrefab;
 
         /// <summary>
         ///     라벨에 표시할 텍스트를 설정합니다.
@@ -81,6 +81,10 @@ namespace Assets.Scripts
             else if (objectName == "Mouse")
             {
                 Instantiate(mousePrefab, spawnPosition, Quaternion.identity);
+            }
+            else if (objectName == "Cup")
+            {
+                Instantiate(cupPrefab, spawnPosition, Quaternion.identity);
             }
 
             // 프리팹을 생성한 후, ObjectLabel을 비활성화

@@ -547,6 +547,18 @@ PrefabInstance:
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 1483068769384948354, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45bcad2244d3bf1458065e92acbc6715, type: 2}
+    - target: {fileID: 1483068770480532151, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 65f5ba1084ec33b41a91469d2b897980, type: 2}
+    - target: {fileID: 3256447441407137959, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fdd81c447584bf54cb061fd9a6987766, type: 2}
     - target: {fileID: 3256447441676053935, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -647,6 +659,26 @@ PrefabInstance:
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Material, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3256447441801374212, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3256447441801374212, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3256447441801374212, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3256447441801374212, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375881865938339883, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e13e691e5f65164abc9b1b7c1ad7d9f, type: 2}
     - target: {fileID: 6237559888371989472, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -719,6 +751,10 @@ PrefabInstance:
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.Renderer, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6237559888371989472, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 45bcad2244d3bf1458065e92acbc6715, type: 2}
     - target: {fileID: 6237559888371989472, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
@@ -816,6 +852,10 @@ PrefabInstance:
       value: UnityEngine.Renderer, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6237559888937199992, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 5e13e691e5f65164abc9b1b7c1ad7d9f, type: 2}
+    - target: {fileID: 6237559888937199992, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 2100000, guid: fe3abfecc95fa02468b9489d6f5199f8, type: 2}
@@ -911,6 +951,10 @@ PrefabInstance:
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.Renderer, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6237559889146216467, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
+      propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 65f5ba1084ec33b41a91469d2b897980, type: 2}
     - target: {fileID: 6237559889146216467, guid: f58e6d40d121cf240992fb25f2888fee, type: 3}
       propertyPath: <OnClicked>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 

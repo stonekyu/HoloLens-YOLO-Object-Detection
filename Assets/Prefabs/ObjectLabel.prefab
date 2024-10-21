@@ -441,6 +441,7 @@ MonoBehaviour:
   tvPrefab: {fileID: 6013950554414243513, guid: 2c7eef3afadda2943becf20e3b256b48, type: 3}
   chairPrefab: {fileID: 8588115379147016874, guid: 3ffb42c9597b9b44da7cdfb5743e88c2, type: 3}
   mousePrefab: {fileID: 6426187624627322151, guid: 0e1248919264b7e4a8a63ab0f9ec711f, type: 3}
+  cupPrefab: {fileID: 1000013445414470, guid: 91d5d0b058046fc4c92b4e52c895f6dd, type: 3}
 --- !u!1 &7587686800783579827
 GameObject:
   m_ObjectHideFlags: 0
