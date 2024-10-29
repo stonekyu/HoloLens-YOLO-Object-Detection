@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 4857846925764359017}
   - component: {fileID: 4857846925764359019}
   - component: {fileID: 4857846925764359016}
+  - component: {fileID: 7831564803677586132}
   m_Layer: 0
   m_Name: ObjectLableUIBackplate
   m_TagString: Untagged
@@ -639,6 +640,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7831564803677586132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857846923970305083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b343d9f603490d649a016937435fad65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4857846924019249681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1192,6 @@ GameObject:
   - component: {fileID: 4857846924373441258}
   - component: {fileID: 4857846924373441259}
   - component: {fileID: 4857846924373441256}
-  - component: {fileID: -1491757474877090486}
   m_Layer: 0
   m_Name: ChairUI
   m_TagString: Untagged
@@ -1271,18 +1283,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &-1491757474877090486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857846924373441262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b343d9f603490d649a016937435fad65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4857846924423738158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4857846924541104039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3851,7 +3851,7 @@ MonoBehaviour:
   <OnClicked>k__BackingField:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4857846923970305083}
+      - m_Target: {fileID: 4857846924373441262}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -3861,7 +3861,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   <OnEnabled>k__BackingField:
     m_PersistentCalls:
