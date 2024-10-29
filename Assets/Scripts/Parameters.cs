@@ -26,14 +26,14 @@ namespace Assets.Scripts
         // Position calculator parameters (2D => 3D).
         internal const float VirtualProjectionPlaneWidth = 1.3f;
         public static Vector2 VirtualProjectionPlane = new(VirtualProjectionPlaneWidth, (float)ModelImageResolution.y / ModelImageResolution.x);
-        internal const int MaxSphereLength = 10;
+        internal const int MaxSphereLength = 5;     //10
         internal const float SphereCastSize = 0.05f;
         internal const float HeightOffset = -0.06f;
         internal const float SphereCastOffset = 0.15f;
 
         // Parameters for features based on Object Recognition.
-        internal const float MinTimesSeen = 4;
-        internal const float ObjectTimeOut = 3f;
+        internal const float MinTimesSeen = 2;          //4
+        internal const float ObjectTimeOut = 2f;        //3
         internal const float MaxIdenticalObject = 0.4f;
     }
 

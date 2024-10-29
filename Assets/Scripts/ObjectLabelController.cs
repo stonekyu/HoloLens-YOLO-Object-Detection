@@ -64,7 +64,7 @@ namespace Assets.Scripts
             string objectName = labelParts[0]; // 첫 번째 단어 (객체 이름)
 
             // 객체 이름에 따라 프리팹을 생성
-            Vector3 spawnPosition = this.transform.position + new Vector3(0, 0.1f, 0); // Y축으로 1 단위 위에 생성
+            Vector3 spawnPosition = this.transform.position + new Vector3(0, 0.1f, 0); // Y축으로 0.1 단위 위에 생성
 
             if (objectName == "Keyboard")
             {
