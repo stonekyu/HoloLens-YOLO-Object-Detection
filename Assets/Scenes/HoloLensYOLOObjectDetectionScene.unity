@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4857846924373441259, guid: 17f83b93e6b411a44941ad2e96537e22, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4857846924373441262, guid: 17f83b93e6b411a44941ad2e96537e22, type: 3}
       propertyPath: m_Name
       value: ChairUI
