@@ -437,11 +437,11 @@ MonoBehaviour:
   ContentParent: {fileID: 5265608569948593053}
   LineRenderer: {fileID: 5265608571350550318}
   TextMesh: {fileID: 5265608570069452989}
-  keyboardPrefab: {fileID: 7150512903078389604, guid: 0a31ede9305f7ec4e85f5fcfe10888f8, type: 3}
-  tvPrefab: {fileID: 6013950554414243513, guid: 2c7eef3afadda2943becf20e3b256b48, type: 3}
+  keyboardPrefab: {fileID: 2561342185607976442, guid: e3dfcc2402af92b49bbf7b6e9e472238, type: 3}
+  tvPrefab: {fileID: 5959115984840609250, guid: 1ce8db70759568143a51c7b7afec5b55, type: 3}
   chairPrefab: {fileID: 4857846924373441262, guid: 17f83b93e6b411a44941ad2e96537e22, type: 3}
-  mousePrefab: {fileID: 6426187624627322151, guid: 0e1248919264b7e4a8a63ab0f9ec711f, type: 3}
-  cupPrefab: {fileID: 1000013445414470, guid: 91d5d0b058046fc4c92b4e52c895f6dd, type: 3}
+  mousePrefab: {fileID: 1713118670389974235, guid: adfedb1d171171049ac89ea47ec32f3f, type: 3}
+  cupPrefab: {fileID: 3346103019090967465, guid: e67ff0ddc30fdb740a95712a9588e201, type: 3}
 --- !u!1 &7587686800783579827
 GameObject:
   m_ObjectHideFlags: 0
